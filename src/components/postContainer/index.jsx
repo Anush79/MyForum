@@ -26,12 +26,14 @@ export default function PostCard({ content, upVoteFunction, downVoteFunction }) 
     isBookmarked,
   } = content;
   const [votes, setVotes] = useState({upvotes:upvotes, downvotes:downvotes})
+  const count = Number(votes.upvotes) - Number(votes.downvotes)
+  console.log(count)
   return (
     <div key={postId} className="postCard">
       <div className="left">
        <div className="up" onClick={()=>{
         console.log(votes)
-        setVotes(votes.upvotes+100);
+        setVotes(()=>(Number(votes.upvotes)+10));
         upVoteFunction(postId)}}>
         <svg
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -49,7 +51,7 @@ export default function PostCard({ content, upVoteFunction, downVoteFunction }) 
 
 
         <div className="down" onClick={()=>{
-           setVotes(votes.downvotes-100);
+           setVotes((votes.upvotes+10));
           downVoteFunction(postId)}}>
            <svg
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"

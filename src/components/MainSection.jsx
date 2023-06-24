@@ -20,7 +20,7 @@ export default function Main() {
     });
     setForumDataState([...found]);
   };
-  
+
   console.log(forumDataState)
   return (
     <div className="main">
