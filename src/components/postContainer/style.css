@@ -1,7 +1,80 @@
 .postCard{
   display: flex;
+  justify-content: center;
+  align-items: start;
+  gap:20px;
+  background-color: #ffffff;
+  padding: 3rem;
 
 }
 .postCard .header img{
   max-width: 50px;
+}
+.postCard .left{
+  margin-top:-30px;
+}
+.postCard .right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+}
+.postCard .left svg{
+  padding:0;
+  margin: 0;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.postCard .left svg path{
+  color: var(--primary_color);
+  transform: scale(1.5);
+
+}
+.tags{
+  display: flex;
+  flex-direction: row;
+ 
+  gap:10px;
+}
+.tagPills{
+  font-size: x-small;
+  font-weight: bold;
+  padding:3px 7px;
+  border-radius: 2px;
+  color: var(--primary_color);
+  text-transform: uppercase;
+  background: rgba(167, 167, 167, 0.402);
+}
+.divider{
+  content:"";
+  background-color: rgba(128, 128, 128, 0.464);
+  height:1px;
+  width: 100%;
+margin-bottom: 10px;
+}
+.icons{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color:rgba(167, 167, 167, 0.813);
+}
+.bookMark{
+  
+  color:rgba(167, 167, 167, 0.813);
+}
+.forumContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.dot{
+  font-size: 2.5rem;
+  color:rgba(167, 167, 167, 0.813);
+}
+.highlighedText{
+  color:var(--primary_color)
 }
