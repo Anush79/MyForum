@@ -18,14 +18,15 @@ padding: 0 50px;
 color: var(--primary_color);
 }
 
-.App .leftSide{
+.App .leftSide, .App .leftSide>div{
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
+  justify-content: space-between;
   
 }
-.App .leftSide div{
+.App .leftSide div.icon{
   display: flex;
   flex-direction: row;
   align-items: center;

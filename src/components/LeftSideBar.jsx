@@ -7,10 +7,10 @@ import { forumData } from '../data';
 export default function LeftSideBar() {
   return <div className="leftSide">
     <div>
-      <div className="home"><HomeOutlinedIcon />Home</div>
-      <div className="explore"><RocketOutlinedIcon />Explore</div>
-      <div className="bookMarks"><BookmarkBorderRoundedIcon />Bookmarks</div>
-      <div className="profile"><AccountCircleOutlinedIcon />Profile</div>
+      <div className="home icon"><HomeOutlinedIcon />Home</div>
+      <div className="explore icon"><RocketOutlinedIcon />Explore</div>
+      <div className="bookMarks icon"><BookmarkBorderRoundedIcon />Bookmarks</div>
+      <div className="profile icon"><AccountCircleOutlinedIcon />Profile</div>
     </div>
     <div>
       <Footer content={forumData} />
