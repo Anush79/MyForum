@@ -1,0 +1,7 @@
+.postCard{
+  display: flex;
+
+}
+.postCard .header img{
+  max-width: 50px;
+}
