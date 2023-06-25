@@ -2,11 +2,12 @@ import {useParams, NavLink} from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PostCard from './postContainer/index'
 import CommentCard from './commentCard'
- import { forumData } from '../data'
+import { useData } from '../context/dataContext';
 export default function Post(){
+
 const {id}=useParams()
-console.log(id)
-const foundPost= forumData?.posts.find(item=>item.postId=== id)
+const {forumDataState, bookMarkFunction} = useData()
+const foundPost= forumDataState?.posts.find(item=>item.postId=== id)
 
   return <div className="postPage">
 

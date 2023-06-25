@@ -1,20 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import {BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { DataProvider, useData } from './context/dataContext'
 
-
-
+export { useData }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-       <App />
+      <DataProvider>
+        <App />
+      </DataProvider>
+
     </Router>
-   
+
   </React.StrictMode>
 );
 

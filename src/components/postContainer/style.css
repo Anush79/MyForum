@@ -4,7 +4,7 @@
   align-items: start;
   gap:20px;
   background-color: #ffffff;
-  padding: 3rem;
+  padding: 1rem;
 
 }
 .postCard .header img{
@@ -77,4 +77,12 @@ margin-bottom: 10px;
 }
 .highlighedText{
   color:var(--primary_color)
+}
+.header{
+  display: flex;
+  gap:15px;
+  align-items: flex-end;
+}
+.greyText{
+  color:#909090;
 }

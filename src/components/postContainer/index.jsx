@@ -1,16 +1,12 @@
 import "./style.css";
 import { NavLink } from "react-router-dom";
-import {useState} from 'react'
-import CircleIcon from "@mui/icons-material/Circle";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
-import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
-import ArrowDropUpOutlinedIcon from "@mui/icons-material/ArrowDropUpOutlined";
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 
-
-export default function PostCard({ content, upVoteFunction, downVoteFunction }) {
+import { useData } from "../../context/dataContext";
+export default function PostCard({ content }) {
+const {upVoteFunction,downVoteFunction,bookMarkFunction} = useData()
   const {
     postId,
     username,
@@ -25,18 +21,15 @@ export default function PostCard({ content, upVoteFunction, downVoteFunction }) 
     comments,
     isBookmarked,
   } = content;
-  const [votes, setVotes] = useState({upvotes:upvotes, downvotes:downvotes})
-  const count = Number(votes.upvotes) - Number(votes.downvotes)
-  console.log(count)
+
+
   return (
     <div key={postId} className="postCard">
       <div className="left">
        <div className="up" onClick={()=>{
-        console.log(votes)
-        setVotes(()=>(Number(votes.upvotes)+10));
         upVoteFunction(postId)}}>
         <svg
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root icon"
           focusable="false"
           aria-hidden="true"
           viewBox="10 0 24 24"
@@ -46,15 +39,14 @@ export default function PostCard({ content, upVoteFunction, downVoteFunction }) 
         </svg>
        </div>
         
-        <p>{Number(votes.upvotes) - Number(votes.downvotes)}</p>
+        <p>{Number(upvotes) - Number(downvotes)}</p>
 
 
 
         <div className="down" onClick={()=>{
-           setVotes((votes.upvotes+10));
           downVoteFunction(postId)}}>
-           <svg
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+           <svg 
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root icon"
           focusable="false"
           aria-hidden="true"
           viewBox="10 10 24 24"
@@ -70,7 +62,7 @@ export default function PostCard({ content, upVoteFunction, downVoteFunction }) 
           <img src={picUrl} alt={username} />
           <span className="greyText">
             Posted by @<span className="highlighedText">{username}</span>{" "}
-            <span className="dot">.</span> 1m{" "}
+            <span className="dot">.</span> <span className="greyText">1m</span>
           </span>
         </div>
         <h4>{post}</h4>
@@ -82,7 +74,7 @@ export default function PostCard({ content, upVoteFunction, downVoteFunction }) 
         <p>{postDescription}</p>
         <div className="divider"></div>
         <div className="icons">
-          <span>
+          <span className="icon" >
             <NavLink to={`/post/${postId}`}>
               <ChatBubbleOutlineRoundedIcon />
             </NavLink>
@@ -90,14 +82,19 @@ export default function PostCard({ content, upVoteFunction, downVoteFunction }) 
 
           <ShareRoundedIcon />
           <span
-            className="bookMark"
+            className="bookMark icon"
+            onClick={()=>{bookMarkFunction(postId)}}
             style={{
-              background: isBookmarked
+              color: isBookmarked 
                 ? "#5348c7"
-                : "rgba(167, 167, 167, 0.813);",
+                : "",
             }}
           >
-            <BookmarkBorderRoundedIcon />
+            <BookmarkBorderRoundedIcon  style={{
+              color: isBookmarked 
+                ? "#5348c7"
+                : "",
+            }} />
           </span>
         </div>
       </div>

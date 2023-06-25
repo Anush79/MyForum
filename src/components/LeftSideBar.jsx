@@ -5,8 +5,9 @@ import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded
 import Footer from './LeftSideFooter';
 import { forumData } from '../data';
 export default function LeftSideBar() {
-  return <div className="leftSide">
+  return <div className="leftSide"> 
     <div>
+   
       <div className="home icon"><HomeOutlinedIcon />Home</div>
       <div className="explore icon"><RocketOutlinedIcon />Explore</div>
       <div className="bookMarks icon"><BookmarkBorderRoundedIcon />Bookmarks</div>
